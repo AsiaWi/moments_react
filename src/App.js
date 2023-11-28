@@ -1,10 +1,23 @@
 
-import './App.css';
+
+import styles from './App.module.css';
+import NavBar from './components/NavBar';
+import Container from "react-bootstrap/Container";
+import {Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-<h1> hello World!</h1>
+    <div className={styles.App}>
+        <NavBar />
+        <Container className={styles.Main}>
+          <Switch>
+          <Route exact path='/' render ={ () => <h1>homepage</h1>} />
+          <Route exact path='/signin' render ={ () => <h1>sign in</h1>} />
+          <Route exact path='/signup' render ={ () => <h1>sign up</h1>} />
+          <Route render ={ () => <p>page not found</p>>} />
+
+          </Switch>
+        </Container>
     </div>
   );
 }
